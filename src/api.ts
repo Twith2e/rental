@@ -3,7 +3,7 @@ import axios from "axios";
 // Create an Axios instance
 const api = axios.create({
   // baseURL: "http://localhost:3000/",
-  baseURL: "rental-server-production-4619.up.railway.app",
+  baseURL: "https://rental-server-production-4619.up.railway.app",
   timeout: 10000,
 });
 
