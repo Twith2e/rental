@@ -1,3 +1,5 @@
+"use client";
+
 import React, {
   createContext,
   useContext,
@@ -7,6 +9,7 @@ import React, {
 } from "react";
 import { useGetProfile } from "@/app/services/profile/profile";
 import { User } from "@/types";
+import { redirect } from "next/navigation";
 
 interface UserContextType {
   user: User | null;
@@ -23,6 +26,9 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     if (data) setUser(data);
+    else {
+      setUser(null);
+    }
   }, [data]);
 
   return (

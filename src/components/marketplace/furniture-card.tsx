@@ -59,10 +59,10 @@ export function FurnitureCard({ furniture }: FurnitureCardProps) {
       onClick={() => handlePayment(furniture)}
     >
       <div className="aspect-video relative bg-muted">
-        {furniture.imgUrl && (
+        {furniture.imageUrl && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={furniture.imgUrl}
+            src={furniture.imageUrl}
             alt={furniture.name}
             className="object-cover w-full h-full"
           />

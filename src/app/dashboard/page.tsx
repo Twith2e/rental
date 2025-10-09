@@ -68,9 +68,9 @@ export default function DashboardPage() {
   );
 
   return (
-    <div className="flex flex-col gap-8 p-8 bg-gradient-to-b from-slate-50 to-white min-h-screen">
+    <div className="flex flex-col gap-8 p-8 bg-gradient-to-b from-indigo-50 via-pink-50 to-amber-50 min-h-screen">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900">
+        <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-indigo-600 via-fuchsia-600 to-amber-500 bg-clip-text text-transparent">
           Welcome to Rental Furnish
         </h1>
         <p className="text-slate-600 mt-2">
@@ -79,7 +79,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <Card className="bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+        <Card className="bg-gradient-to-br from-white to-emerald-50 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 border-b border-slate-100">
             <CardTitle className="text-sm font-medium text-slate-900">
               Total Spent
@@ -94,7 +94,7 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+        <Card className="bg-gradient-to-br from-white to-indigo-50 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 border-b border-slate-100">
             <CardTitle className="text-sm font-medium text-slate-900">
               Total Items
@@ -174,9 +174,9 @@ export default function DashboardPage() {
                   <Line
                     type="monotone"
                     dataKey="amount"
-                    stroke="#6366f1"
+                    stroke="#8b5cf6"
                     strokeWidth={2}
-                    dot={{ fill: "#6366f1" }}
+                    dot={{ fill: "#f43f5e" }}
                   />
                 </LineChart>
               </ResponsiveContainer>

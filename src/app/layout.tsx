@@ -35,7 +35,14 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={cn("font-body antialiased", "bg-background")}>
+      <body
+        className={cn(
+          "font-body antialiased",
+          // Keep base background token but layer a subtle multi-color gradient
+          "bg-background bg-gradient-to-br from-indigo-50 via-pink-50 to-amber-50",
+          "dark:from-[#0b0f1a] dark:via-[#0e1326] dark:to-[#0b1020]"
+        )}
+      >
         <Providers>
           <NextTopLoader color="#3b82f6" height={4} showSpinner={false} />
           <NavigationErrorBoundary>

@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
+import { usePathname } from "next/navigation";
 import {
   SidebarMenu,
   SidebarMenuItem,
@@ -21,44 +22,21 @@ const menuItems = [
  * Uses a hybrid approach for pathname detection to avoid hydration issues
  */
 export function MainNav() {
-  const [currentPath, setCurrentPath] = useState("");
-  const [isClient, setIsClient] = useState(false);
+  const pathname = usePathname() || "";
 
-  useEffect(() => {
-    // Set client-side flag and initial pathname
-    setIsClient(true);
-    setCurrentPath(window.location.pathname);
-
-    // Listen for route changes
-    const handleRouteChange = () => {
-      setCurrentPath(window.location.pathname);
-    };
-
-    window.addEventListener("popstate", handleRouteChange);
-
-    return () => {
-      window.removeEventListener("popstate", handleRouteChange);
-    };
-  }, []);
-
-  // Fallback to server-side pathname if available
-  let pathname = currentPath;
-  try {
-    if (isClient && typeof window !== "undefined") {
-      pathname = window.location.pathname;
-    }
-  } catch (error) {
-    // Fallback to empty string if pathname detection fails
-    pathname = "";
-  }
+  // Helper to determine active state for base routes and nested paths
+  const isActiveHref = useMemo(
+    () => (href: string) => pathname === href || pathname.startsWith(href + "/"),
+    [pathname]
+  );
 
   return (
     <SidebarMenu>
       {menuItems.map((item) => (
         <SidebarMenuItem key={item.href}>
-          <Link href={item.href} onClick={() => setCurrentPath(item.href)}>
+          <Link href={item.href}>
             <SidebarMenuButton
-              isActive={pathname === item.href}
+              isActive={isActiveHref(item.href)}
               tooltip={item.label}
               className="w-full justify-start"
             >

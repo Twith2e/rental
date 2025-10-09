@@ -21,5 +21,5 @@ export type Furniture = {
   category: string;
   price: number;
   quantity: number;
-  imgUrl: string;
+  imageUrl: string;
 };

@@ -40,7 +40,7 @@ export function UserAvatar() {
         <Button
           variant="outline"
           className="w-full justify-start"
-          onClick={() => router.push("/")}
+          onClick={() => router.push("/login")}
         >
           <User className="mr-2 h-4 w-4" />
           Sign up / Sign in
