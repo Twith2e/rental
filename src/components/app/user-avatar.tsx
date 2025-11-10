@@ -77,7 +77,7 @@ export function UserAvatar() {
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem
-            className="text-destructive focus:text-destructive"
+            className="text-destructive hover:text-destructive focus:text-destructive data-[highlighted]:bg-destructive/15 data-[highlighted]:text-destructive"
             onClick={() => {
               logout();
               router.push("/");
